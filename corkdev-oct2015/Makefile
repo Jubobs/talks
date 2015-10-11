@@ -10,8 +10,10 @@
 #	http://www.w3.org/Talks/Tools/Slidy2
 
 BASENAME  = slides
+HEADER    = header.inc
 LATEXMK   = pdflatex -shell-escape
 RM        = rm -f
+TEXSRC    = $(wildcard *.tex)
 
 all: $(BASENAME).html
 	open $(BASENAME).html
@@ -19,18 +21,18 @@ all: $(BASENAME).html
 $(BASENAME).html: $(BASENAME).md \
 			header.inc \
 			Makefile \
-			imgs
+			*.svg
 	pandoc	--data-dir=. \
 		--standalone \
 		--to slidy \
 		--css $(BASENAME).css \
 		--highlight-style haddock \
-		--include-in-header=header.inc \
+		--include-in-header=$(HEADER) \
 		-o $(BASENAME).html \
 		$(BASENAME).md
 
-imgs: $(wildcard *.tex)
-	$(LATEXMK) *.tex
+%.svg: %.tex
+	$(LATEXMK) $^
 
 clean:
 	$(RM) *.aux *.log *.out *.pdf
@@ -38,4 +40,4 @@ clean:
 cleanall: clean
 	$(RM) $(BASENAME).html *.svg
 
-.PHONY: all clean cleanall imgs
+.PHONY: all clean cleanall
