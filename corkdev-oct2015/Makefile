@@ -21,10 +21,13 @@ all: $(BASENAME).html
 $(BASENAME).html: $(BASENAME).md \
 			header.inc \
 			Makefile \
-			*.svg
+			$(BASENAME).css \
+			*.tex	
+	$(LATEXMK) *.tex
 	pandoc	--data-dir=. \
 		--standalone \
 		--to slidy \
+		--slide-level=2 \
 		--css $(BASENAME).css \
 		--highlight-style haddock \
 		--include-in-header=$(HEADER) \

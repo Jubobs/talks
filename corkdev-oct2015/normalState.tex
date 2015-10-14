@@ -1,0 +1,18 @@
+\documentclass[tikz, convert={outfile=\jobname.svg}]{standalone}
+
+\usepackage{gitdags}
+
+\begin{document}
+\begin{tikzpicture}
+  \gitDAG[grow right sep = 2em]{
+    A -- B -- C -- D -- E
+  };
+  \gitbranch
+    {master}
+    {above=of E}
+    {E}
+  \gitHEAD
+    {above=of master}
+    {master}
+\end{tikzpicture}
+\end{document}

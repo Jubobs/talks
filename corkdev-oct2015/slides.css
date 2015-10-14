@@ -1,3 +1,13 @@
+h1 {
+  text-align: center;
+}
+
+blockquote {
+  font-style: italic;
+  background-color: #fff9e3;
+  border-left: 2px solid #ffeb8e
+}
+
 img {
   display: block;
   width: 40%;

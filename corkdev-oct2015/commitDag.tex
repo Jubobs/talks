@@ -1,0 +1,14 @@
+\documentclass[tikz, convert={outfile=\jobname.svg}]{standalone}
+
+\usepackage{gitdags}
+
+\begin{document}
+\begin{tikzpicture}
+  \gitDAG[grow right sep = 2em]{
+    A -- B -- { 
+      C,
+      D -- E,
+    }
+  };
+\end{tikzpicture}
+\end{document}
