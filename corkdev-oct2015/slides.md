@@ -7,7 +7,7 @@
 - Git is a powerful tool, but a stern taskmaster
 - This is too short a talk for a formal Git tutorial.
 - Don't expect to be proficient with Git by the end.
-- Only a few pointers/tips for learning Git more efficiently.
+- Only a few pointers/tips for learning Git more efficiently
 
 
 # The need for version control
@@ -49,7 +49,7 @@ revisit the past (if needed), and much more...
 
 # A short history of Git
 
-## The Bitkeeper debacle
+## The BitKeeper debacle
 
 - Back in the early 00's, the Linux kernel uses a VCS called BitKeeper.
 - Proprietary software, but with a free community edition (a controversial
@@ -103,7 +103,8 @@ few weeks. Git is born!
 
 - No canonical/central repository (in theory)
     * Not so in practice, by convention
-    * More (distributed) backups!
+    * No single point of failure
+    * Entire project history saved in many distributed backups
 - No locking mechanism: developers can change the same file at the same time.
 - Commits are local!
     * Allows for more incremental development steps
@@ -111,6 +112,7 @@ few weeks. Git is born!
     * Merges are local.
     * Gone is the fear of committing and breaking the build!
 - Branches are cheap!
+    * Experiment (and commit) without polluting your stable code
 
 
 ## Problems with Git
@@ -139,9 +141,9 @@ git init
 
 ## Commit (1/3)
 
-- Also known as "revision" , "snapshot"
-- Reflects the state of your project as it was recorded at some point in the
-  past.
+- Also known as "revision", "snapshot"
+- Reflects the state of your project as it was recorded at some point in
+ the past.
 - Relevant Git command:
 
     ~~~~ {.bash}
